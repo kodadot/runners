@@ -1,0 +1,31 @@
+name: Search Updater
+on:
+  # schedule:
+    # - cron: "*/30 * * * *"
+  workflow_dispatch:
+  # label:
+    # types: [created]
+
+defaults:
+  run:
+    working-directory: polysearch
+
+jobs:
+  process:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        chain: [bsx, ksm]
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Deno
+        uses: denoland/setup-deno@v1.1.1
+        with:
+          deno-version: v1.x.x
+      - name: Pamp it
+        env: # Or as an environment variable
+          CHAIN: ${{ matrix.chain }}
+        run: |
+          deno --version
+          deno run -A main.ts

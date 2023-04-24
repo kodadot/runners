@@ -1,0 +1,16 @@
+{
+  "tasks": {
+    "start": "deno run -A main.ts"
+  },
+  "lint": {
+    "rules": {
+      "exclude": ["no-explicit-any"]
+    }
+  },
+  "fmt": {
+    "files": {
+      "include": ["src/"]
+    }
+  },
+  "lock": "./deno.lock"
+}

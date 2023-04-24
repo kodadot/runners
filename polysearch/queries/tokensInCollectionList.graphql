@@ -1,0 +1,16 @@
+query tokensInCollectionList($list: [String!] = []) {
+  items: nftEntities(where: { collection: { id_in: $list } }) {
+    id
+  	name
+    collection {
+      id
+      name
+    }
+    meta {
+      id
+      name
+      image
+      animationUrl
+    }
+  }
+}

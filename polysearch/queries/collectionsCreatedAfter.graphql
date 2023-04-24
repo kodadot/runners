@@ -1,0 +1,18 @@
+query createdCollectionsAfter($after: DateTime!, $supply: Int = 20) {
+  collections: collectionEntities(where: {createdAt_gte: $after, supply_gte: $supply}) {
+    id
+    createdAt
+    name
+    metadata
+    currentOwner
+    issuer
+    supply
+    meta {
+      id
+      name
+      image
+      animationUrl
+    }
+  }
+}
+
