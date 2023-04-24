@@ -12,5 +12,5 @@
       "include": ["src/"]
     }
   },
-  "lock": "./deno.lock"
+  "lock": "deno.lock"
 }
