@@ -27,5 +27,4 @@ jobs:
         env: # Or as an environment variable
           CHAIN: ${{ matrix.chain }}
         run: |
-          deno --version
           deno run -A main.ts

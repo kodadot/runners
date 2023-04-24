@@ -9,6 +9,9 @@ import { CHAIN } from './env.ts'
 try {
   const client = getClient(CHAIN as any)
   const date = startOfDay(subDays(new Date(), 7))
+
+  console.log(`FETCHING ${CHAIN} COLLECTIONS CREATED AFTER ${date}`)
+
   const query = getCollectionsCreatedAfter(date.toISOString(), 0)
   
   const result: any = await client.fetch(query)
