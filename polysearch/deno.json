@@ -11,6 +11,5 @@
     "files": {
       "include": ["src/"]
     }
-  },
-  "lock": "deno.lock"
+  }
 }
