@@ -27,4 +27,4 @@ jobs:
         env: # Or as an environment variable
           CHAIN: ${{ matrix.chain }}
         run: |
-          deno run -A main.ts
+          deno task start --lock=deno.lock --lock-write
