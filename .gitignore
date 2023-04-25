@@ -2,4 +2,5 @@
 .vscode
 .env
 *.sh
-deno.lock 
+*.sql
+deno.lock
