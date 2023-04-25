@@ -1,23 +1,23 @@
 // deno-lint-ignore-file no-explicit-any
-import { startOfDay, subDays } from 'https://cdn.skypack.dev/date-fns@^2.29.2'
+import { format, startOfDay, subDays } from 'https://cdn.skypack.dev/date-fns@^2.29.2'
 import { getClient } from 'https://esm.sh/@kodadot1/uniquery@0.3.0-rc.0'
 import { getCollectionsCreatedAfter } from './graphql.ts'
 import { mapToCollectionInsert } from './mapper.ts'
 import { intoInsert, saveStatement } from './sql.ts'
-import { CHAIN } from './env.ts'
+import { CHAIN, DAYS, SUPPLY } from './env.ts'
 
 try {
   const client = getClient(CHAIN as any)
-  const date = startOfDay(subDays(new Date(), 7))
+  const date = startOfDay(subDays(new Date(), DAYS))
 
-  console.log(`FETCHING ${CHAIN} COLLECTIONS CREATED AFTER ${date}`)
+  console.log(`[CHAIN]: ${CHAIN} [AFTER]: ${format(date, 'yyyy-MM-dd')}`)
 
-  const query = getCollectionsCreatedAfter(date.toISOString(), 0)
+  const query = getCollectionsCreatedAfter(date.toISOString(), SUPPLY)
   
   const result: any = await client.fetch(query)
 
   if (!result || !result.data || !result.data.collections?.length) {
-    console.log('no result')
+    console.warn('EMPTY RESULT FOR CHAIN: ', CHAIN)
     Deno.exit(0)
   }
 

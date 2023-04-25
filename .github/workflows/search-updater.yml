@@ -2,10 +2,8 @@ name: Search Updater
 run-name: Update Search D1 (#${{ github.run_number }})
 on:
   # schedule:
-    # - cron: "*/30 * * * *"
+    # - cron: "0 0 * * *"
   workflow_dispatch:
-  # label:
-    # types: [created]
 
 defaults:
   run:
@@ -16,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        chain: [bsx]
+        chain: [bsx, ksm]
 
     steps:
       - uses: actions/checkout@v3
@@ -34,4 +32,4 @@ jobs:
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
           accountId: ${{ secrets.CF_ACCOUNT_ID }}
-          command: d1 execute search --command='SELECT count(*) FROM collections'
+          command: d1 execute search --file=./${{ matrix.chain }}.sql
