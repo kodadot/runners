@@ -1,4 +1,4 @@
-name: Search Updater
+name: Search Updater (#${{ github.run_attempt }})
 on:
   # schedule:
     # - cron: "*/30 * * * *"
@@ -28,3 +28,8 @@ jobs:
           CHAIN: ${{ matrix.chain }}
         run: |
           deno task start
+      - name: Apply changes
+        uses: cloudflare/wrangler-action@2.0.0
+        with:
+          apiToken: ${{ secrets.CF_API_TOKEN }}
+          command: d1 execute search --command='SELECT count(*) FROM collections'
