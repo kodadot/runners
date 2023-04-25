@@ -12,7 +12,7 @@ try {
 
   console.log(`FETCHING ${CHAIN} COLLECTIONS CREATED AFTER ${date}`)
 
-  const query = getCollectionsCreatedAfter(date.toISOString(), 0)
+  const query = getCollectionsCreatedAfter(date.toISOString(), 20)
   
   const result: any = await client.fetch(query)
 
