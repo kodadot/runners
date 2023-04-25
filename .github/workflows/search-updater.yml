@@ -1,4 +1,5 @@
-name: Search Updater (#${{ github.run_attempt }})
+name: Search Updater 
+run-name: Update D1 (#${{ github.run_attempt }})
 on:
   # schedule:
     # - cron: "*/30 * * * *"
