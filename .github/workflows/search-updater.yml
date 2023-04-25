@@ -1,5 +1,5 @@
 name: Search Updater 
-run-name: Update D1 (#${{ github.run_attempt }})
+run-name: Update Search D1 (#${{ github.run_id }})
 on:
   # schedule:
     # - cron: "*/30 * * * *"
@@ -29,8 +29,9 @@ jobs:
           CHAIN: ${{ matrix.chain }}
         run: |
           deno task start
-      - name: Apply changes
+      - name: Execute changes
         uses: cloudflare/wrangler-action@2.0.0
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
+          accountId: ${{ secrets.CF_ACCOUNT_ID }}
           command: d1 execute search --command='SELECT count(*) FROM collections'
