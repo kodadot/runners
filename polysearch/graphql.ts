@@ -1,4 +1,4 @@
-import { importQL } from "https://deno.land/x/importql/mod.ts";
+import { importQL } from "https://deno.land/x/importql@v1.0.0/mod.ts";
 
 type GraphQuery = {
   query: string;
