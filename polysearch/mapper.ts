@@ -13,13 +13,14 @@ export const mapToCollectionInsert = (collection: any) => {
   }
 
   return {
-    id: collection.id,
+    id: `${CHAIN}-${collection.id}`,
     name: content.name,
     image: content.image,
     media_url: content.media_url,
     metadata: collection.metadata,
     chain: CHAIN,
     volume: 0,
+    collection_id: collection.id,
   };
 };
 
