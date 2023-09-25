@@ -1,6 +1,6 @@
 // deno-lint-ignore-file no-explicit-any
-import { format, startOfDay, subDays } from 'https://cdn.skypack.dev/date-fns@^2.29.2'
-import { getClient } from 'https://esm.sh/@kodadot1/uniquery@0.3.0-rc.0'
+import { format, startOfDay, subDays } from 'https://cdn.skypack.dev/date-fns@2.30.0'
+import { getClient } from 'https://esm.sh/@kodadot1/uniquery@0.5.0-rc.0'
 import { getCollectionsCreatedAfter } from './graphql.ts'
 import { mapToCollectionInsert } from './mapper.ts'
 import { intoInsert, saveStatement } from './sql.ts'
@@ -21,7 +21,7 @@ try {
     Deno.exit(0)
   }
 
-  const collections = result.data.collections.map(mapToCollectionInsert)
+  const collections = result.data.collections.map(mapToCollectionInsert).filter(Boolean)
 
   const statement = intoInsert('collections', collections)
   saveStatement(statement)
