@@ -1,3 +1,3 @@
-export const CHAIN = Deno.env.get("CHAIN") || "bsx";
-export const DAYS = Number(Deno.env.get("DAYS")) || 7;
-export const SUPPLY = Number(Deno.env.get("SUPPLY")) || 20;
+export const CHAIN = Deno.env.get("CHAIN") || "ahk";
+export const DAYS = Number(Deno.env.get("DAYS")) || 30;
+export const SUPPLY = Number(Deno.env.get("SUPPLY")) || 5;
