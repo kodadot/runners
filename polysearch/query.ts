@@ -1,9 +1,9 @@
 import {
   extendFields,
   getClient,
-} from "https://esm.sh/@kodadot1/uniquery@0.5.0-rc.0";
-import { startOfDay, subDays } from "https://esm.sh/date-fns@2.30.0";
-import { Prefix } from "https://esm.sh/@kodadot1/static@0.0.3";
+} from 'https://esm.sh/@kodadot1/uniquery@0.6.0-rc.0';
+import { startOfDay, subDays } from 'https://esm.sh/date-fns@3.6.0';
+import { Prefix } from "https://esm.sh/@kodadot1/static@0.0.5";
 
 export function getCollections(prefix: Prefix) {
   const client = getClient(prefix);
