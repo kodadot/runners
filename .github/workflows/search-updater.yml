@@ -17,9 +17,9 @@ jobs:
         chain: [ahk, ahp]
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4.1.7
       - name: Set up Deno
-        uses: denoland/setup-deno@v1.1.1
+        uses: denoland/setup-deno@v1.3.0
         with:
           deno-version: v1.x.x
       - name: Pamp it
@@ -28,7 +28,7 @@ jobs:
         run: |
           deno task start
       - name: Execute changes
-        uses: cloudflare/wrangler-action@v3
+        uses: cloudflare/wrangler-action@v3.7.0
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
           accountId: ${{ secrets.CF_ACCOUNT_ID }}
