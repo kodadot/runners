@@ -23,6 +23,11 @@ try {
 
   const collections = result.data.collections.map(mapToCollectionInsert).filter(Boolean)
 
+  if (!collections.length) {
+    console.warn('EMPTY RESULT FOR CHAIN: ', CHAIN)
+    Deno.exit(0)
+  }
+
   const statement = intoInsert('collections', collections)
   saveStatement(statement)
 } catch (error) {
