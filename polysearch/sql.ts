@@ -15,5 +15,5 @@ export const sqlToString = (statement: Sql): string => {
 };
 
 export const saveStatement = async (statement: Sql) => {
-  await Deno.writeTextFile(`./${CHAIN}.sql`, statement.toString());
+  await Deno.writeTextFile(`./${CHAIN}`, statement.toString());
 };

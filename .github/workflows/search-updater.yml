@@ -28,10 +28,10 @@ jobs:
         run: |
           deno task start
       - name: Execute changes
-        if: ${{ hashFiles(${{ matrix.chain }}.sql) != '' }}
+        if: ${{ hashFiles(${{ matrix.chain }}) != '' }}
         uses: cloudflare/wrangler-action@v3.7.0
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
           accountId: ${{ secrets.CF_ACCOUNT_ID }}
           workingDirectory: "polysearch"
-          command: d1 execute search --file=./${{ matrix.chain }}.sql
+          command: d1 execute search --file=./${{ matrix.chain }}
