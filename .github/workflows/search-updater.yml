@@ -28,7 +28,7 @@ jobs:
         run: |
           deno task start
       - name: Execute changes
-        if: ${{ hashFiles("${{ matrix.chain }}.sql") != '' }}
+        if: ${{ hashFiles(${{ matrix.chain }}.sql) != '' }}
         uses: cloudflare/wrangler-action@v3.7.0
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
