@@ -34,4 +34,4 @@ jobs:
           apiToken: ${{ secrets.CF_API_TOKEN }}
           accountId: ${{ secrets.CF_ACCOUNT_ID }}
           workingDirectory: "polysearch"
-          command: d1 execute search --file=./${{ matrix.chain }}
+          command: d1 execute multisearch --file=./${{ matrix.chain }}
